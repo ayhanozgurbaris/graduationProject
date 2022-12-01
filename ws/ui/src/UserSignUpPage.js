@@ -1,0 +1,100 @@
+import React from "react";
+import axios from "axios";
+
+export class UserSignUpPage extends React.Component{
+
+    state = {
+        username:null,
+        displayName:null,
+        aggredClicked:false,
+        password:null,
+        passwordRepeat:null
+    }
+
+     onChangeUsername = (event) => {
+         this.setState({
+            username:event.target.value
+         })
+        };
+
+     onChangeAgree = (event) =>{
+        this.setState({
+            aggredClicked:event.target.checked
+        })
+     }
+
+
+     onChangeDisplayName = (event) =>{
+        this.setState({
+            displayName:event.target.value
+        })
+     }
+
+     onChangePassword = event =>{
+        this.setState({
+            password:event.target.value
+        })
+     }
+
+     onChangePasswordRepeat = event =>{
+        this.setState({
+            passwordRepeat:event.target.value
+        })
+     }
+
+
+
+     onClickSignUp = event =>{
+        event.preventDefault();
+
+        const body = {
+            username:this.state.username ,
+            displayName:this.state.displayName ,
+            password: this.state.password
+         };
+         
+        axios.post('http://localhost:8080/api/1.0/users',body)
+     }
+
+
+//validation error yansýtamadým.
+
+
+
+
+    render(){
+       return (
+
+        <form>
+            <h1>Sign Up</h1>
+            <div>
+                <label>Username</label>
+                <input onChange={this.onChangeUsername}></input>
+            </div>
+
+            <div>
+                <label>Display Name</label>
+                <input onChange={this.onChangeDisplayName}></input>
+            </div>
+
+            <div>
+                <label>Password</label>
+                <input type="password" onChange={this.onChangePassword}></input>
+            </div>
+
+            <div>
+                <label>Password Repeat</label>
+                <input type="password" onChange={this.onChangePasswordRepeat}></input>
+            </div>
+
+            <input type="checkbox" onChange={this.onChangeAgree}></input>Agreed
+            
+            <button onClick={this.onClickSignUp} disabled={!this.state.aggredClicked}>Sign Up</button>
+
+
+        </form>
+        
+       );
+    }
+
+}
