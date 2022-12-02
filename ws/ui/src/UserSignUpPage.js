@@ -53,11 +53,9 @@ export class UserSignUpPage extends React.Component{
             password: this.state.password
          };
          
-        axios.post('http://localhost:8080/api/1.0/users',body)
-     }
+        axios.post('http://localhost:8080/api/1.0/users',body);
+     };
 
-
-//validation error yansýtamadým.
 
 
 

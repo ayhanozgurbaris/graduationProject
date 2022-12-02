@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 
 export class UserLoginPage extends Component {
@@ -22,16 +23,16 @@ export class UserLoginPage extends Component {
      }
 
 
-     onClickSignUp = event =>{
+     onClickLogin = event =>{
         event.preventDefault();
 
-        const body = {
+        const creds = {
             username:this.state.username ,
             password: this.state.password
          };
          
-     }
-
+         axios.post('http://localhost:8080/api/1.0/auth',{},{auth:creds});
+     };
 
 
 
@@ -51,8 +52,7 @@ export class UserLoginPage extends Component {
             </div>
 
 
-
-            <button>Login</button>
+            <button onClick={this.onClickLogin}>Log In</button>
 
             </form>
     
