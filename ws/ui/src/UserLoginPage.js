@@ -1,7 +1,7 @@
 import axios from 'axios';
-import React, { Component } from 'react';
+import React from 'react';
 
-export class UserLoginPage extends Component {
+export class UserLoginPage extends React.Component {
 
 
     state = {
@@ -16,7 +16,7 @@ export class UserLoginPage extends Component {
         })
        };
 
-    onChangePassword = event =>{
+    onChangePassword = (event) =>{
         this.setState({
             password:event.target.value
         })
@@ -31,18 +31,19 @@ export class UserLoginPage extends Component {
             password: this.state.password
          };
          
-         axios.post('http://localhost:8080/api/1.0/auth',{},{auth:creds});
+         axios.post('/api/1.0/auth',{},{auth : creds});
      };
 
 
 
-    render() {
+    render(){
         return (
-            <form>
-                 <h1>Login</h1>
+
+        <form>
+            <h1>Login</h1>
             <div>
-                <label>Username</label>
-                <input onChange={this.onChangeUsername}></input>
+                    <label>Username</label>
+                    <input onChange={this.onChangeUsername}></input>
             </div>
 
             
@@ -52,9 +53,9 @@ export class UserLoginPage extends Component {
             </div>
 
 
-            <button onClick={this.onClickLogin}>Log In</button>
+            <button onClick={this.onClickLogin} >Log In</button>
 
-            </form>
+        </form>
     
         );
     }
