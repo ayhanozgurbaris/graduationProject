@@ -3,6 +3,8 @@ package com.socialize.ws.authentication;
 import org.slf4j.LoggerFactory;
 
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +57,17 @@ public class AuthController {
 		
 		
 		
-		return ResponseEntity.ok().build();
+		//usernam, displayName, image
+		Map<String,String> responseBody = new HashMap<>();
+		responseBody.put("username", inDB.getUsername());
+		responseBody.put("displayName", inDB.getDisplayName());
+		responseBody.put("image", inDB.getImage());
+		
+		
+		
+		
+		
+		return ResponseEntity.ok(responseBody);
 		
 	}
 }

@@ -28,6 +28,9 @@ public class User {
 	private String password;
 	
 	
+	private String image;
+	
+	
 
 	public String getUsername() {
 		return username;
@@ -68,6 +71,18 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", displayName=" + displayName + ", password=" + password + "]";
+	}
+
+
+
+	public String getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	
