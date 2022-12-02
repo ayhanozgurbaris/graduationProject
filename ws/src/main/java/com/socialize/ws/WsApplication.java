@@ -23,9 +23,9 @@ public class WsApplication {
 			@Override
 			public void run(String... args) throws Exception {
 				User user = new User();
-				user.setUsername("defaultUser9");
-				user.setDisplayName("defaultDisplay9");
-				user.setPassword("defaultPassword9");
+				user.setUsername("defaultUser5");
+				user.setDisplayName("defaultDisplay5");
+				user.setPassword("defaultPassword5");
 				userService.save(user);
 			}
 			
