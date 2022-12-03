@@ -1,5 +1,7 @@
 package com.socialize.ws;
 
+import java.util.Iterator;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,15 +24,18 @@ public class WsApplication {
 
 			@Override
 			public void run(String... args) throws Exception {
+				
+				for(int i=1;i<=10;i++) {
+				
 				User user = new User();
-				user.setUsername("defaultUser8");
-				user.setDisplayName("defaultDisplay8");
-				user.setPassword("defaultPassword8");
+				user.setUsername("defaultUser1"+i);
+				user.setDisplayName("defaultDisplay1"+i);
+				user.setPassword("defaultPassword1"+i);
 				userService.save(user);
 			}
 			
+			};
 		};
-		
 	}
 
 }

@@ -3,7 +3,7 @@ package com.socialize.ws.user;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.List;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -70,5 +71,36 @@ public class UserController {
 		userService.save(user);
 		return ResponseEntity.ok(new GenericResponse("user created"));
 	}
+	
+	
+	
+	
+	
+
+	@GetMapping("api/1.0/users")
+	List<User> getUsers(){
+		return userService.getUsers();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
