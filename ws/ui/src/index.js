@@ -8,11 +8,12 @@ import { UserSignUpPage } from './UserSignUpPage';
 import HomePage from './HomePage';
 import UserPage from './UserPage';
 import {HashRouter,Route,Redirect,Switch} from 'react-router-dom';
-
+import TopBar from './TopBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <TopBar/>
     <HashRouter>
     <Switch>
     <Route exact path="/" component={HomePage}/>
