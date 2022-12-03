@@ -13,8 +13,8 @@ import TopBar from './TopBar';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <TopBar/>
     <HashRouter>
+    <TopBar/>
     <Switch>
     <Route exact path="/" component={HomePage}/>
     <Route path="/login" component={UserLoginPage}/>
