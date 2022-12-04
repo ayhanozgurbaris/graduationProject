@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getUsers } from './apiCall';
+import UserItemList from './UserItemList';
 
 class UserList extends Component {
 
@@ -19,16 +20,19 @@ class UserList extends Component {
     render() {
         const{users} = this.state;
         return (
-            <div>
+            <div className='card'>
+                   <h3 className='card-header text center'>{'Users'}</h3>
+                   <div className='list-group-flush'>
                 {
                     users.map(function(user,index){
                         return (
-                            <div key={index}>
+                            <div className='list-group-item list-group-item-action' key={index}>
                                 {user.username}
                             </div>
                         )
                     })
                 }
+                </div>
             </div>
         );
     }
