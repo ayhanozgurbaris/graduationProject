@@ -26,9 +26,7 @@ class UserList extends Component {
                 {
                     users.map(function(user,index){
                         return (
-                            <div className='list-group-item list-group-item-action' key={index}>
-                                {user.username}
-                            </div>
+                            <UserItemList key={user.username} user={user} />
                         )
                     })
                 }
