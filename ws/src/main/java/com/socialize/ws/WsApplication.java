@@ -25,12 +25,12 @@ public class WsApplication {
 			@Override
 			public void run(String... args) throws Exception {
 				
-				for(int i=1;i<=10;i++) {
+				for(int i=1;i<=25;i++) {
 				
 				User user = new User();
-				user.setUsername("defaultUser33"+i);
-				user.setDisplayName("defaultDisplay33"+i);
-				user.setPassword("defaultPassword33"+i);
+				user.setUsername("2defaultUser"+i);
+				user.setDisplayName("2defaultDisplay"+i);
+				user.setPassword("2defaultPassword"+i);
 				userService.save(user);
 			}
 			

@@ -5,3 +5,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update 
+      
+  data:
+    web:
+      pageable:
+        page-parameter: currentPage
+        size-parameter: pageSize

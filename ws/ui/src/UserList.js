@@ -11,7 +11,7 @@ class UserList extends Component {
     componentDidMount(){
         getUsers().then(response =>{
             this.setState({
-                users: response.data
+                users: response.data.content
             }
             );
         })
@@ -24,12 +24,8 @@ class UserList extends Component {
                    <h3 className='card-header text center'>{'Users'}</h3>
                    <div className='list-group-flush'>
                 {
-                    users.map(function(user,index){
-                        return (
-                            <UserItemList key={user.username} user={user} />
-                        )
-                    })
-                }
+                    users.map(user =>(<UserItemList key={user.username} user={user}/>))}
+                
                 </div>
             </div>
         );
@@ -37,3 +33,6 @@ class UserList extends Component {
 }
 
 export default UserList;
+
+
+
