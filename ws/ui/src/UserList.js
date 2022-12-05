@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Last } from 'react-bootstrap/esm/PageItem';
 import { getUsers } from './apiCall';
 import UserItemList from './UserItemList';
 
 class UserList extends Component {
 
     state ={
-        page:{
+        currentPage:{
             content:[],
             size:3,
             number: 0
@@ -15,14 +16,26 @@ class UserList extends Component {
     componentDidMount(){
         getUsers().then(response =>{
             this.setState({
-                page: response.data
+                currentPage: response.data
             }
             );
         })
     }
 
+    onClickNext= ()=>{
+        const nextPage = this.state.currentPage.number +1;
+        getUsers(nextPage).then(response=>{
+            this.setState({
+                currentPage: response.data
+            })
+        })
+    }
+    
+
+
+
     render() {
-        const{content , last, first} = this.state.page;
+        const{content , last, first} = this.state.currentPage;
         return (
             <div className='card'>
                    <h3 className='card-header text center'>{'Users'}</h3>
@@ -32,7 +45,7 @@ class UserList extends Component {
                 
                 </div>
                 <div>
-                    {!last && <button>Next</button>}
+                    {last === false && (<button onClick={this.onClickNext}>Next</button>)}
                 </div>
             </div>
         );
