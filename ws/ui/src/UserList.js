@@ -22,7 +22,7 @@ class UserList extends Component {
     }
 
     render() {
-        const{content} = this.state.page;
+        const{content , last, first} = this.state.page;
         return (
             <div className='card'>
                    <h3 className='card-header text center'>{'Users'}</h3>
@@ -30,6 +30,9 @@ class UserList extends Component {
                 {
                     content.map(user =>(<UserItemList key={user.username} user={user}/>))}
                 
+                </div>
+                <div>
+                    {!last && <button>Next</button>}
                 </div>
             </div>
         );
