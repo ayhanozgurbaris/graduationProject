@@ -5,26 +5,30 @@ import UserItemList from './UserItemList';
 class UserList extends Component {
 
     state ={
-        users:[]
+        page:{
+            content:[],
+            size:3,
+            number: 0
+        }
     }
 
     componentDidMount(){
         getUsers().then(response =>{
             this.setState({
-                users: response.data.content
+                page: response.data
             }
             );
         })
     }
 
     render() {
-        const{users} = this.state;
+        const{content} = this.state.page;
         return (
             <div className='card'>
                    <h3 className='card-header text center'>{'Users'}</h3>
                    <div className='list-group-flush'>
                 {
-                    users.map(user =>(<UserItemList key={user.username} user={user}/>))}
+                    content.map(user =>(<UserItemList key={user.username} user={user}/>))}
                 
                 </div>
             </div>
