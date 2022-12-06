@@ -37,6 +37,11 @@ public class AuthController {
 		}
 		
 		
+		
+		
+		
+		
+		
 		String encoded = authorization.split("Basic ")[1];
 		String decoded = new String( Base64.getDecoder().decode(encoded));
 		String[] parts = decoded.split(":");
@@ -54,8 +59,7 @@ public class AuthController {
 			ApiError error = new ApiError(401,"Wrong Password","/api/1.0/auth");
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
 		}
-		
-		
+	
 		
 		//usernam, displayName, image
 		Map<String,String> responseBody = new HashMap<>();
@@ -63,10 +67,7 @@ public class AuthController {
 		responseBody.put("displayName", inDB.getDisplayName());
 		responseBody.put("image", inDB.getImage());
 		
-		
-		
-		
-		
+	
 		return ResponseEntity.ok(responseBody);
 		
 	}

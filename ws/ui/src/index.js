@@ -12,7 +12,7 @@ import TopBar from './TopBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  
     <HashRouter>
     <TopBar/>
     <Switch>
@@ -20,10 +20,10 @@ root.render(
     <Route path="/login" component={UserLoginPage}/>
     <Route path="/signup" component={UserSignUpPage}/>
     <Route path="/user/:username" component={UserPage}/>
-    <Redirect to={"/"}/>
+    <Redirect to="/"/>
     </Switch>
     </HashRouter>
-  </React.StrictMode>
+  
 );
 
 

@@ -13,9 +13,7 @@ import java.util.List;
 
 @Service
 public class UserService {
-	
 	UserRepository userRepository;
-	
 	PasswordEncoder passwordEncoder;
 	
 
@@ -29,8 +27,7 @@ public class UserService {
 	public void save(User user) {
 		String encryptedPassword = this.passwordEncoder.encode(user.getPassword());
 		user.setPassword(encryptedPassword);
-		userRepository.save(user);
-		
+		userRepository.save(user);		
 	}
 
 
@@ -38,8 +35,5 @@ public class UserService {
 	public Page<User> getUsers(Pageable page) {
 		return userRepository.findAll(page);
 	}
-
-
-
 
 }

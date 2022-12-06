@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 
+
 export class UserLoginPage extends React.Component {
 
 
@@ -30,8 +31,13 @@ export class UserLoginPage extends React.Component {
             username:this.state.username ,
             password: this.state.password
          };
+         try {
+            axios.post('/api/1.0/auth',{},{auth : creds});
+            this.props.history.push('/')
+         } catch (error) {
+            
+         }
          
-         axios.post('/api/1.0/auth',{},{auth : creds});
      };
 
 
