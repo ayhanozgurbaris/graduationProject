@@ -14,19 +14,24 @@ class UserList extends Component {
     }
 
     componentDidMount(){
-        getUsers().then(response =>{
-            this.setState({
-                currentPage: response.data
-            }
-            );
-        })
+        this.loadUsers();
     }
 
     onClickNext= ()=>{
         const nextPage = this.state.currentPage.number +1;
-        getUsers(nextPage).then(response=>{
+        this.loadUsers(nextPage)
+    }
+
+    onClickPrevious= ()=>{
+        const previousPage = this.state.currentPage.number -1;
+        this.loadUsers(previousPage)
+    }
+
+
+    loadUsers = currentPage =>{
+        getUsers(currentPage).then(response=>{
             this.setState({
-                currentPage: response.data
+                currentPage:response.data
             })
         })
     }
@@ -44,6 +49,13 @@ class UserList extends Component {
                     content.map(user =>(<UserItemList key={user.username} user={user}/>))}
                 
                 </div>
+
+                <div>
+                    {first === false && (<button onClick={this.onClickPrevious}>Previous</button>)}
+                </div>
+
+
+
                 <div>
                     {last === false && (<button onClick={this.onClickNext}>Next</button>)}
                 </div>

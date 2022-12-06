@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.socialize.ws.error.ApiError;
+import com.socialize.ws.user.vm.UserVM;
+
 import shared.GenericResponse;
 
 @RestController
@@ -76,8 +78,8 @@ public class UserController {
 	
 
 	@GetMapping("api/1.0/users")
-	Page<User> getUsers(Pageable page){
-		return userService.getUsers(page);
+	Page<UserVM> getUsers(Pageable page){
+		return userService.getUsers(page).map(UserVM::new);
 	}
 	
 	
