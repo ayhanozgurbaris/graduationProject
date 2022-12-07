@@ -65,7 +65,7 @@ export class UserSignUpPage extends React.Component{
     
        return (
 
-        <form>
+        <form className="nav-link">
             <h1>Sign Up</h1>
             <div>
                 <label>Username</label>

@@ -28,7 +28,7 @@ class TopBar extends Component {
         </ul>
         );
         if (isLoggedIn){
-            links =(<ul>
+            links =(<ul className="nav-link">
                 <li>Sign Out</li>
             </ul>)
   
@@ -40,7 +40,7 @@ class TopBar extends Component {
         return (
             <div className="shadow-sm bg-primary mb-3">
             <nav className="navbar navbar-light">
-                <Link className="navbar-brand" to="/">
+                <Link className="nav-link navbar-brand" to="/">
                     Socialize
                 </Link>
                 {links}
