@@ -36,11 +36,11 @@ export class UserSignUpPage extends React.Component{
         })
      }
 
-     onChangePasswordRepeat = event =>{
-        this.setState({
-            passwordRepeat:event.target.value
-        })
-     }
+    //  onChangePasswordRepeat = event =>{
+    //     this.setState({
+    //         passwordRepeat:event.target.value
+    //     })
+    //  }
 
 
 
@@ -82,10 +82,10 @@ export class UserSignUpPage extends React.Component{
                 <input type="password" onChange={this.onChangePassword}></input>
             </div>
 
-            <div>
+            {/* <div>
                 <label>Password Repeat</label>
                 <input type="password" onChange={this.onChangePasswordRepeat}></input>
-            </div>
+            </div> */}
 
             <input type="checkbox" onChange={this.onChangeAgree}></input>Agreed
             

@@ -13,7 +13,7 @@ const UserItemList = props =>{
 
  
         return (
-            <Link to={`/user/${username}`} className='list-group-item list-group-item-action'>
+            <Link to={`/user/${username}`} className='list-group-item'>
                 <img width={32} alt={`${username} profile`} src={imageSource}/>
                 {displayName}@{username}
             </Link>

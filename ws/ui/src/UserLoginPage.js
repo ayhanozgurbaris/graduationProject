@@ -63,7 +63,7 @@ export class UserLoginPage extends React.Component {
 
         return (    
 
-        <div className='container'>
+        
         <form>
             <h1>Login</h1>
             <div>
@@ -79,7 +79,7 @@ export class UserLoginPage extends React.Component {
             <button onClick={this.onClickLogin} >Log In</button>
 
         </form>
-        </div>
+     
 
 
 

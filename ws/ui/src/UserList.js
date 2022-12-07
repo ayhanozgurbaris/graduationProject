@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Last } from 'react-bootstrap/esm/PageItem';
+//import { Last } from 'react-bootstrap/esm/PageItem';
 import UserItemList from './UserItemList';
 import axios from 'axios';
 
@@ -48,8 +48,8 @@ class UserList extends Component {
         const{content , last, first} = this.state.currentPage;
         return (
             <div className='card'>
-                   <h3 className='card-header text center'>{'Users'}</h3>
-                   <div className='list-group-flush'>
+                   <h3 className='card-header'>Users</h3>
+                   <div className='list-group-item'>
                 {
                     content.map(user =>(<UserItemList key={user.username} user={user}/>))}
                 

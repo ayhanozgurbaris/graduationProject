@@ -38,8 +38,8 @@ class TopBar extends Component {
 
 
         return (
-            <div className="shadow-sm bg-primary mb-4">
-            <nav className="navbar navbar-light container">
+            <div className="shadow-sm bg-primary mb-3">
+            <nav className="navbar navbar-light">
                 <Link className="navbar-brand" to="/">
                     Socialize
                 </Link>
