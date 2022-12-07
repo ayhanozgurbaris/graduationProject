@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Last } from 'react-bootstrap/esm/PageItem';
-import { getUsers } from './apiCall';
 import UserItemList from './UserItemList';
+import axios from 'axios';
+
+const getUsers = (currentPage = 0, pageSize = 10)=>{
+    return axios.get(`/api/1.0/users?currentPage=${currentPage}&pageSize=${pageSize}`);
+}
+
 
 class UserList extends Component {
 

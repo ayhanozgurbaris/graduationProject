@@ -61,6 +61,8 @@ export class UserSignUpPage extends React.Component{
 
 
     render(){
+
+    
        return (
 
         <form>
@@ -87,8 +89,10 @@ export class UserSignUpPage extends React.Component{
 
             <input type="checkbox" onChange={this.onChangeAgree}></input>Agreed
             
-            <button onClick={this.onClickSignUp} disabled={!this.state.aggredClicked}>Sign Up</button>
-
+            <div>
+                <button onClick={this.onClickSignUp} disabled={!this.state.aggredClicked}>Sign Up</button>
+            </div>
+            
 
         </form>
         
