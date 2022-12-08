@@ -3,13 +3,9 @@ import  {Link} from 'react-router-dom';
 
 class TopBar extends Component {
 
-    state={
-        isLoggedIn: false
-    }
-
     render() {
 
-        const {isLoggedIn} = this.setState;
+        const {isLoggedIn,username,onLogoutSuccess} = this.props;
 
         let links =(
             
@@ -28,9 +24,13 @@ class TopBar extends Component {
         </ul>
         );
         if (isLoggedIn){
-            links =(<ul className="nav-link">
-                <li>Sign Out</li>
-            </ul>)
+            links =(
+            <ul className="navbar-nav">
+                <li><Link className='nav-link' to={`/user/${username}`}>{username}</Link></li>
+
+                <li onClick={onLogoutSuccess} style={{cursor:'pointer'}}>LogOut</li>
+            </ul>
+            )
   
             }
         
