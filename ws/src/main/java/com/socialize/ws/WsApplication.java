@@ -28,9 +28,9 @@ public class WsApplication {
 				for(int i=1;i<=25;i++) {
 				
 				User user = new User();
-				user.setUsername("defaultUsernbcccfg"+i);
-				user.setDisplayName("defaultDisplaynbccgcf"+i);
-				user.setPassword("defaultPasswordnbccgcf"+i);
+				user.setUsername("defaultUserz"+i);
+				user.setDisplayName("defaultDisplay"+i);
+				user.setPassword("defaultPassword"+i);
 				userService.save(user);
 			}
 			

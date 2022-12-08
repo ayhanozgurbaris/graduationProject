@@ -76,11 +76,6 @@ export class UserSignUpPage extends React.Component{
                 <input type="password" onChange={this.onChangePassword}></input>
             </div>
 
-            {/* <div>
-                <label>Password Repeat</label>
-                <input type="password" onChange={this.onChangePasswordRepeat}></input>
-            </div> */}
-
             <input type="checkbox" onChange={this.onChangeAgree}></input>Agreed
             
             <div>
