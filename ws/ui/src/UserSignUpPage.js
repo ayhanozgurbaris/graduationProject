@@ -36,12 +36,6 @@ export class UserSignUpPage extends React.Component{
         })
      }
 
-    //  onChangePasswordRepeat = event =>{
-    //     this.setState({
-    //         passwordRepeat:event.target.value
-    //     })
-    //  }
-
 
 
      onClickSignUp = event =>{
