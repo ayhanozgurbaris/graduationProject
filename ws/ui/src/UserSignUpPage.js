@@ -70,7 +70,7 @@ export class UserSignUpPage extends React.Component{
     render(){
 
         const {pendingApiCall,errors} = this.state;
-        const {username} = errors;
+        const {username,displayName,password} = errors;
 
     
        return (
@@ -85,12 +85,14 @@ export class UserSignUpPage extends React.Component{
 
             <div className="form-group">
                 <label>Display Name</label>
-                <input onChange={this.onChangeDisplayName}></input>
+                <input className={ displayName ? "form-control is-invalid" : "form-control"} onChange={this.onChangeDisplayName}></input>
+                <div className="invalid-feedback">{displayName}</div>
             </div>
 
             <div className="form-group">
                 <label>Password</label>
-                <input type="password" onChange={this.onChangePassword}></input>
+                <input className={ password ? "form-control is-invalid" : "form-control"} type="password" onChange={this.onChangePassword}></input>
+                <div className="invalid-feedback">{password}</div>
             </div>
 
             <input type="checkbox" onChange={this.onChangeAgree}></input>Agreed
