@@ -55,7 +55,7 @@ public class UserController {
 		if (password == null || password.isEmpty()) {
 			
 			
-			validationErrors.put("displayName", "Display Name cannot be null");
+			validationErrors.put("password", "Password cannot be null");
 		
 		}
 		
