@@ -17,14 +17,14 @@ public class User {
 	
 	//@NotNull(message = "username cannot be null")
 	//@Size(min=4, max=255)
-	@Column(unique=true)
+	//@Column(unique=true)
 	private String username;
 	
 	//@NotNull(message = "displayName cannot be null")
 	//@Size(min=4, max=255)
 	private String displayName;
 	
-	@Size(min=8, max=255, message = "at least 8, maximum 255 characters")
+	//@Size(min=8, max=255, message = "at least 8, maximum 255 characters")
 	private String password;
 	
 	
