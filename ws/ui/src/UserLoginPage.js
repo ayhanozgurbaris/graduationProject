@@ -68,12 +68,12 @@ export class UserLoginPage extends React.Component {
         
         <form className="nav-link">
             <h1>Login</h1>
-            <div>
+            <div className="form-group">
                     
                     <Input label={'Username'} name="username" onChange={this.onChangeUsername} />
             </div>
       
-            <div>
+            <div className="form-group">
                  <Input label={'Password'} name="password" type="password" onChange={this.onChangePassword } />
                 {error && <div className="alert alert-warning">{error}</div>}
             </div>

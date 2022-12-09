@@ -1,6 +1,10 @@
 import React from "react";
 import axios from "axios";
 
+const signup = (body)=>{
+    return axios.post('/api/1.0/users',body);
+}
+
 export class UserSignUpPage extends React.Component{
 
     state = {
@@ -8,7 +12,8 @@ export class UserSignUpPage extends React.Component{
         displayName:null,
         aggredClicked:false,
         password:null,
-        passwordRepeat:null
+        pendingApiCall:false,
+        errors:{}
     }
 
      onChangeUsername = (event) => {
@@ -38,16 +43,24 @@ export class UserSignUpPage extends React.Component{
 
 
 
-     onClickSignUp = event =>{
+     onClickSignUp =async event =>{
         event.preventDefault();
 
         const body = {
             username:this.state.username ,
             displayName:this.state.displayName ,
-            password: this.state.password
+            password: this.state.password, 
          };
-         
-        axios.post('/api/1.0/users',body);
+
+         this.setState({pendingApiCall:true});
+
+        try {
+            const response = await signup(body);
+        } catch (error) {
+            this.setState({errors:error.response.data.validationErrors})
+        }
+        this.setState({pendingApiCall:false});
+       
      };
 
 
@@ -56,29 +69,33 @@ export class UserSignUpPage extends React.Component{
 
     render(){
 
+        const {pendingApiCall,errors} = this.state;
+        const {username} = errors;
+
     
        return (
 
         <form className="nav-link">
             <h1>Sign Up</h1>
-            <div>
+            <div className="form-group">
                 <label>Username</label>
-                <input onChange={this.onChangeUsername}></input>
+                <input className={ username ? "form-control is-invalid" : "form-control"} onChange={this.onChangeUsername}></input>
+                <div className="invalid-feedback">{username}</div>
             </div>
 
-            <div>
+            <div className="form-group">
                 <label>Display Name</label>
                 <input onChange={this.onChangeDisplayName}></input>
             </div>
 
-            <div>
+            <div className="form-group">
                 <label>Password</label>
                 <input type="password" onChange={this.onChangePassword}></input>
             </div>
 
             <input type="checkbox" onChange={this.onChangeAgree}></input>Agreed
             
-            <div>
+            <div className="form-group">
                 <button onClick={this.onClickSignUp} disabled={!this.state.aggredClicked}>Sign Up</button>
             </div>
             

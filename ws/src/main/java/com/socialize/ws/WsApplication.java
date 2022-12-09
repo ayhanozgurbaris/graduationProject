@@ -18,24 +18,24 @@ public class WsApplication {
 		SpringApplication.run(WsApplication.class, args);
 	}
 	
-	@Bean
-	CommandLineRunner createInitialUsers(UserService userService) {
-		return new CommandLineRunner() {
-
-			@Override
-			public void run(String... args) throws Exception {
-				
-				for(int i=1;i<=25;i++) {
-				
-				User user = new User();
-				user.setUsername("defaultUserz"+i);
-				user.setDisplayName("defaultDisplay"+i);
-				user.setPassword("defaultPassword"+i);
-				userService.save(user);
-			}
-			
-			};
-		};
-	}
+//	@Bean
+//	CommandLineRunner createInitialUsers(UserService userService) {
+//		return new CommandLineRunner() {
+//
+//			@Override
+//			public void run(String... args) throws Exception {
+//				
+//				for(int i=1;i<=25;i++) {
+//				
+//				User user = new User();
+//				user.setUsername("defaultUserz"+i);
+//				user.setDisplayName("defaultDisplay"+i);
+//				user.setPassword("defaultPassword"+i);
+//				userService.save(user);
+//			}
+//			
+//			};
+//		};
+//	}
 
 }
