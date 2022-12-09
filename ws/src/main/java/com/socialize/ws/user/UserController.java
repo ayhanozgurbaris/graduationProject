@@ -29,44 +29,48 @@ public class UserController {
 	
 	@CrossOrigin
 	@PostMapping("/api/1.0/users")
-	public ResponseEntity<?> createUser(@Valid @RequestBody User user) {
+	public ResponseEntity<?> createUser(@RequestBody User user) {
 		
 		ApiError apiError = new ApiError(400, "/api/1.0/users","Validation Error");
 		
 		Map<String, String> validationErrors = new HashMap<>();
 		
+		//BURADA SIGNUP ICIN HATA MESAJLARI
+		
 		String username = user.getUsername();
 		String displayName = user.getDisplayName();
 		String password = user.getPassword();
+		
 		if (username == null || username.isEmpty()) {
-			
 			validationErrors.put("username", "username cannot be null");
-
+		}else if (username.length()<8 && username.length()>0) {
+			validationErrors.put("username","username size must be longer than 8");
 		}
-			
 		
-		if (displayName == null || displayName.isEmpty()) {
-			
-		
-			validationErrors.put("displayName", "Display Name cannot be null");
-		
-		}
 		
 		if (password == null || password.isEmpty()) {
-			
-			
-			validationErrors.put("password", "Password cannot be null");
-		
+			validationErrors.put("password", "password cannot be null");
+		}else if (password.length()<8 && password.length()>0) {
+			validationErrors.put("password","password size must be longer than 8");
 		}
 		
 		
+		
+		if (displayName == null || displayName.isEmpty()) {
+			validationErrors.put("displayName", "displayName cannot be null");
+		}else if (displayName.length()<8 && displayName.length()>0) {
+			validationErrors.put("displayName","displayName size must be longer than 8");
+		}
+			
+		
+
 		
 		
 		if(validationErrors.size()>0) {
 			apiError.setValidationErrors(validationErrors);
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiError);
 		}
-		
+	
 
 		userService.save(user);
 		return ResponseEntity.ok(new GenericResponse("user created"));
