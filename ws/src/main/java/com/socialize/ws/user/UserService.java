@@ -1,14 +1,13 @@
 package com.socialize.ws.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.data.domain.Pageable;
 
-import java.util.List;
+import com.socialize.ws.error.UserNotFound;
+
+import org.springframework.data.domain.Pageable;
 
 
 @Service
@@ -36,4 +35,42 @@ public class UserService {
 		return userRepository.findAll(page);
 	}
 
+
+
+	public User getByUsername(String username) {
+		User INDB =  userRepository.findByUsername(username);
+		if (INDB == null) {
+			throw new UserNotFound();
+		}
+		return INDB;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
